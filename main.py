@@ -175,7 +175,7 @@ def load_conversation(thread_id: str) -> List[Dict[str, str]]:
 @app.get("/")
 async def root():
     """Health check endpoint"""
-    return FileResponse("static/index.html")
+    return FileResponse("index.html")
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     """
@@ -312,6 +312,7 @@ async def get_booking_history(thread_id: str):
 # 3. Run: uvicorn main:app --reload
 # 4. Access API docs at: http://localhost:8000/docs
 # 5. Access API at: http://localhost:8000
+
 
 
 
