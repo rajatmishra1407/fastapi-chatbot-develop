@@ -44,7 +44,7 @@ class HealthStatus:
 
 health_status = HealthStatus()
 
-@app.get("/healthz")
+@app.get("/health")
 async def health_check():
     """
     Health check endpoint for monitoring and load balancers
@@ -312,5 +312,6 @@ async def get_booking_history(thread_id: str):
 # 3. Run: uvicorn main:app --reload
 # 4. Access API docs at: http://localhost:8000/docs
 # 5. Access API at: http://localhost:8000
+
 
 
