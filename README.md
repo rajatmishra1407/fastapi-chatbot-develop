@@ -116,12 +116,12 @@ Health Check → http://localhost:8000/healthz
 
 API Docs → http://localhost:8000/docs
 
-🧠 Key API Endpoints
-Endpoint	Method	Description
-/chat	POST	Send message to chatbot
-/chat/stream	POST	Stream chatbot responses
-/thread/new	POST	Create a new conversation thread
-/thread/{thread_id}/history	GET	Retrieve chat history
-/thread/{thread_id}/booking-history	GET	Retrieve booking details
-/threads	GET	List all conversation threads
-/healthz	GET	System health check
+**Key API Endpoints**
+- Endpoint	Method	Description
+   - /chat	POST	Send message to chatbot
+   - /chat/stream	POST	Stream chatbot responses
+   - /thread/new	POST	Create a new conversation thread
+   - /thread/{thread_id}/history	GET	Retrieve chat history
+   - /thread/{thread_id}/booking-history	GET	Retrieve booking details
+   - /threads	GET	List all conversation threads
+   - /healthz	GET	System health check
