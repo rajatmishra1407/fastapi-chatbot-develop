@@ -1,77 +1,73 @@
-**FastAPI + LangGraph Chatbot
-**
+**FastAPI + LangGraph Chatbot**
+
 An AI-powered conversational chatbot built with FastAPI, LangGraph, and LangChain, designed for contextual, ethical, and multi-turn conversations — deployable via Docker.
 
-🚀 Objective
+**Objective**
 
 This chatbot handles multi-turn dialogue, ambiguous inputs, and ethical filtering — all within a single cohesive backend.
 
-It:
-Maintains conversational state
+It does the following things:
+- Maintains conversational state
+- Detects and clarifies ambiguous inputs
+- Handles off-topic interruptions
+- Filters profanity/gibberish
+- Supports containerized deployment via Docker
 
-Detects and clarifies ambiguous inputs
+**Core Features**
+1. Conversational AI
 
-Handles off-topic interruptions
+- Uses LangGraph + LangChain for intelligent flow control
 
-Filters profanity/gibberish
+- LLM integration (OpenAI GPT-4o-mini or compatible)
 
-Supports containerized deployment via Docker
+- Memory-based context tracking
 
-🧩 Core Features
-🗣️ Conversational AI
+2. Context-Aware Dialogs
 
-Uses LangGraph + LangChain for intelligent flow control
+- Keeps track of conversation history
 
-LLM integration (OpenAI GPT-4o-mini or compatible)
+- Handles topic switching and resuming mid-conversation
 
-Memory-based context tracking
+3. Knowledge Base
 
-🔄 Context-Aware Dialogs
+- Answers factual queries from a built-in JSON knowledge base
 
-Keeps track of conversation history
+- Detects contradictory user statements and responds intelligently
 
-Handles topic switching and resuming mid-conversation
+4. Ethical & Input Guardrails
 
-🧠 Knowledge Base
+- Blocks gibberish, spam, and profanity
 
-Answers factual queries from a built-in JSON knowledge base
+- Politely corrects invalid or contradictory questions
 
-Detects contradictory user statements and responds intelligently
+5. Booking Assistant
 
-🚫 Ethical & Input Guardrails
+- Identifies “BookReservation” intent
 
-Blocks gibberish, spam, and profanity
+- Extracts fuzzy time expressions (e.g., “this weekend or maybe Monday”)
 
-Politely corrects invalid or contradictory questions
+- Asks clarifying follow-up questions before confirmation
 
-🪄 Booking Assistant
+6. Health Monitoring
 
-Identifies “BookReservation” intent
+- /healthz endpoint checks:
 
-Extracts fuzzy time expressions (e.g., “this weekend or maybe Monday”)
+- LLM initialization
 
-Asks clarifying follow-up questions before confirmation
+- Knowledge base readiness
 
-🩺 Health Monitoring
+- Ethical filter activation
 
-/healthz endpoint checks:
-
-LLM initialization
-
-Knowledge base readiness
-
-Ethical filter activation
-
-🧱 Tech Stack
-Component	Technology
-Framework	FastAPI
-AI Flow Control	LangGraph
-LLM Integration	LangChain (OpenAI GPT-4o-mini)
-Search Tool	DuckDuckGo Search
-Database	SQLite (conversation checkpoints)
-Deployment	Docker
-Runtime	Uvicorn
-Language	Python 3.10+
+**Tech Stack** 
+- Component	Technology
+- Framework	FastAPI
+- AI Flow Control	LangGraph
+- LLM Integration	LangChain (OpenAI GPT-4o-mini)
+- Search Tool	DuckDuckGo Search
+- Database	SQLite (conversation checkpoints)
+- Deployment	Docker
+- Runtime	Uvicorn
+- Language	Python 3.10+
 
 📁 Project Structure
 fastapi-chatbot-develop/
@@ -81,41 +77,40 @@ fastapi-chatbot-develop/
 ├── requirements.txt            # Dependencies
 ├── Dockerfile                  # Container build configuration
 ├── chatbot_clean.db            # SQLite checkpoint store
-├── static/                     # (Optional) Frontend or docs
-│   └── index.html
+├──  index.html                    # (Optional) Frontend or docs   
 └── README.md                   # Project documentation
 
-⚙️ Setup Instructions (Local)
-1️⃣ Clone the Repository
+**Setup Instructions (Local)** 
+1. Clone the Repository
 **git clone https://github.com/rajatmishra1407/fastapi-chatbot-develop.git**
 cd fastapi-chatbot-develop
 
-2️⃣ Create Virtual Environment
+2. Create Virtual Environment
 python -m venv venv
 venv\Scripts\activate         # Windows
 
-3️⃣ Install Dependencies
+3. Install Dependencies
 pip install --no-cache-dir -r requirements.txt
 
-4️⃣ Run Locally
+5. Run Locally
 uvicorn main:app --host 0.0.0.0 --port 8000
 
 
-Open http://localhost:8000/docs
- for API Swagger docs.
+6. Open http://localhost:8000/docs
+ - for API Swagger docs.
 
-Use /chat to send messages.
+http://localhost:8000 to send messages and make chat.
 
-🐳 Docker Deployment
-1️⃣ Build Docker Image
-docker build -t fastapi-chatbot .
+**Docker Deployment**
+1. Build Docker Image
+docker build -t chatbot-app .
 
-2️⃣ Run Container
-docker run -p 8000:8000 fastapi-chatbot
+2. Run Container
+docker run -p 8000:8000 chatbot-app
 
 INFO:     Uvicorn running on http://0.0.0.0:8000
 INFO:     Application startup complete.
-3️⃣ Verify Endpoints
+3. Verify Endpoints
 
 Health Check → http://localhost:8000/healthz
 
