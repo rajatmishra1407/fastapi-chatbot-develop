@@ -1,5 +1,5 @@
-🧠 FastAPI + LangGraph Chatbot
-
+**FastAPI + LangGraph Chatbot
+**
 An AI-powered conversational chatbot built with FastAPI, LangGraph, and LangChain, designed for contextual, ethical, and multi-turn conversations — deployable via Docker.
 
 🚀 Objective
