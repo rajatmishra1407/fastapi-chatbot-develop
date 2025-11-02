@@ -87,7 +87,7 @@ cd fastapi-chatbot-develop
 
 2. Create Virtual Environment
 python -m venv venv
-venv\Scripts\activate         # Windows
+- venv\Scripts\activate         # Windows
 
 3. Install Dependencies
 pip install --no-cache-dir -r requirements.txt
